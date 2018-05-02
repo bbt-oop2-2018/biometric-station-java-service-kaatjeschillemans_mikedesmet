@@ -13,16 +13,16 @@ public class SerialPort {
      public static void main(String[] args) {
         // First create an object of SerialLineReceiver using the non-default constructor
         // 0 = index of com port (not the COM number from windows!)
-        // 9600 = baudrate
+        // 115200 = baudrate
         // false = debugging, set to true to see more messages in the console
-        SerialLineReciever receiver = new SerialLineReciever(1, 9600, false);
+        SerialLineReciever receiver = new SerialLineReciever(1, 115200, false);
         
         // To receive data from the serial port device you need to register a listener.
         // This is an instance of SerialPortLineListener that has a method serialLineEvent().
         // This method is called from inside SerialLineReceiver every time the serial port
         // received a data stream that contains a newline (\n).
         // The data is past using an object of type SerialData. You can access the data as a String
-        // or as an array of bytes.
+        // or as an array of bytes.115200
         receiver.setLineListener(new SerialPortListener() {
             @Override
             public void serialLineEvent(SerialData data) {
